@@ -6,4 +6,7 @@ RUN curl -L --output "mysql-connector-java-8.0.22.tar.gz" "https://dev.mysql.com
     && mv "mysql-connector-java-8.0.22/mysql-connector-java-8.0.22.jar" "mysql-connector-java-8.0.22.jar" \
     && rm -r "mysql-connector-java-8.0.22" "mysql-connector-java-8.0.22.tar.gz"
 
+# Remove default pipeline to get rid of debug logs
+RUN rm "./pipeline/logstash.conf"
+
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint"]
